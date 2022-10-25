@@ -46,6 +46,7 @@ public class PatronesDesignApplication {
         PersonBuilderLombok personBuilderLoombokBuilder = PersonBuilderLombok.builder().nombre("Cristian").sueldo(100).build();
         System.out.println(personBuilderLoombokBuilder.getNombre() + " " + personBuilderLoombokBuilder.getSueldo());
 
+        //PATRÓN BUILDER SIN LOMBOK
         System.out.println("PATRÓN BUILDER SIN LOOMBOK");
         PersonBuilderSinLombok personSinL = new PersonBuilderSinLombok.Builder().setNombre("Cristian").setSueldo(1000).build();
         System.out.println(personSinL.getNombre() + " sueldo " + personSinL.getSueldo());
