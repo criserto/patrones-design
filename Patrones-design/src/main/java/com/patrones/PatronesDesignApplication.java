@@ -2,10 +2,16 @@ package com.patrones;
 
 import com.patrones.builder.PersonBuilderLombok;
 import com.patrones.builder.PersonBuilderSinLombok;
+import com.patrones.decorator.decorators.Becario;
+import com.patrones.decorator.decorators.Desempleado;
+import com.patrones.decorator.decorators.Empleado;
+import com.patrones.facade.PersonFacade;
 import com.patrones.prototype.Person;
 import com.patrones.singleton.PersonSingleton;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.List;
 
 /**
  * @author Cristian González Hens
@@ -50,6 +56,37 @@ public class PatronesDesignApplication {
         System.out.println("PATRÓN BUILDER SIN LOOMBOK");
         PersonBuilderSinLombok personSinL = new PersonBuilderSinLombok.Builder().setNombre("Cristian").setSueldo(1000).build();
         System.out.println(personSinL.getNombre() + " sueldo " + personSinL.getSueldo());
+        System.out.println("\n============\n");
+
+        //PATRÓN DECORATOR
+        System.out.println("PATRÓN DECORATOR");
+
+        //CREAMOS AL BECARIO
+        com.patrones.decorator.Person personDecorator = new Becario();
+        personDecorator.setNombre("Cristian");
+        System.out.println(personDecorator.hablar());
+        System.out.println("Extra laboral: " + personDecorator.sueldoBonificacion(0));
+
+        //NUESTRO BECARIO ES DESEMPLEADO
+        com.patrones.decorator.Person personDecoratorDesempleado = new Desempleado(personDecorator);
+        System.out.println(personDecoratorDesempleado.hablar());
+        System.out.println("Extra laboral: " + personDecoratorDesempleado.sueldoBonificacion(0));
+
+        //NUESTRO BECARIO AHORA ES EMPLEADO
+        com.patrones.decorator.Person personDecoratorEmpleado = new Empleado(personDecorator);
+        System.out.println(personDecoratorEmpleado.hablar());
+        System.out.println("Extra: " + personDecoratorEmpleado.sueldoBonificacion(100));
+
+        System.out.println("\n============\n");
+
+        //PATRÓN FACADE
+        System.out.println("PATRÓN FACADE");
+
+        //CREAR 10 PERSONAS DE ENTRE 20-30 AÑOS
+        List<com.patrones.facade.piezas.Person> personFacade = PersonFacade.personList(2,3,"azul", 6);
+
+        personFacade.stream().forEach(System.out::println);
+
     }
 
 
