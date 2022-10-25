@@ -1,5 +1,7 @@
 package com.patrones;
 
+import com.patrones.builder.PersonBuilderLombok;
+import com.patrones.builder.PersonBuilderSinLombok;
 import com.patrones.prototype.Person;
 import com.patrones.singleton.PersonSingleton;
 import org.springframework.boot.SpringApplication;
@@ -40,10 +42,13 @@ public class PatronesDesignApplication {
         System.out.println("\n============\n");
 
         //PATRÓN BUILDER CON LOMBOK
-        System.out.println("PATRÓN BUILDER");
-        com.patrones.builder.Person personBuilder = com.patrones.builder.Person.builder().nombre("Cristian").sueldo(100).build();
-        System.out.println(personBuilder.getNombre() + " " + personBuilder.getSueldo());
+        System.out.println("PATRÓN BUILDER LOOMBOK");
+        PersonBuilderLombok personBuilderLoombokBuilder = PersonBuilderLombok.builder().nombre("Cristian").sueldo(100).build();
+        System.out.println(personBuilderLoombokBuilder.getNombre() + " " + personBuilderLoombokBuilder.getSueldo());
 
+        System.out.println("PATRÓN BUILDER SIN LOOMBOK");
+        PersonBuilderSinLombok personSinL = new PersonBuilderSinLombok.Builder().setNombre("Cristian").setSueldo(1000).build();
+        System.out.println(personSinL.getNombre() + " sueldo " + personSinL.getSueldo());
     }
 
 

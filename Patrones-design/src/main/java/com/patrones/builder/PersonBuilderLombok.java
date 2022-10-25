@@ -7,9 +7,9 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class Person {
+public class PersonBuilderLombok {
 
     String nombre;
 
-    int sueldo;
+    double sueldo;
 }
