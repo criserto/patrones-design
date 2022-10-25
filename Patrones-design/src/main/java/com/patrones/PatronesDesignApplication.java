@@ -10,6 +10,7 @@ public class PatronesDesignApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PatronesDesignApplication.class, args);
 
+		//CRISTIAN GONZÁLEZ HENS
 		//PATRON SINGLETON
 		PersonSingleton personSingleton = new PersonSingleton("Cristian", 30, "programador");
 		System.out.println(personSingleton.hablar());
