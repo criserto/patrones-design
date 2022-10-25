@@ -1,5 +1,5 @@
 # patrones-design
-25-10-22 | Patrones de diseño
+25-10-22 | Patrones de diseño | Cristian González Hens
 
 
 ## Patrones de diseño
