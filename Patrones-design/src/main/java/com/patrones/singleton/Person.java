@@ -10,17 +10,18 @@ public class Person {
     private String nombre;
     private int edad;
 
-    private Person(){}
+    private Person() {
+    }
 
-    public static Person getPerson(){
+    public static Person getPerson() {
 
-        if(person == null){
+        if (person == null) {
             person = new Person();
         }
         return person;
     }
 
-    public String sayHello(){
+    public String sayHello() {
         return "Hola soy " + nombre + " tengo " + edad + " años";
     }
 }
